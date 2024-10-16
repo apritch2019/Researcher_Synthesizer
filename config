@@ -1,1 +1,13 @@
+import os
 
+config = {
+    'groq_api_key': os.getenv('GROQ_API_KEY'),  # Replace with environment variable or set manually
+    'start_date': '2019-01-01',
+    'end_date': '2024-12-31',
+    'queries': [
+        'Natural language processing AND legal document review',
+        'legal text summarization',
+        # More queries can be added here
+    ],
+    'paper_abstract': 'This paper surveys the most common use cases for NLP in legal document review...'
+}
