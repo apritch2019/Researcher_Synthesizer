@@ -2,81 +2,70 @@
 
 Researcher_Synthesizer is an automated research pipeline designed to collect, summarize, and classify research papers in the field of legal Natural Language Processing (NLP). This project leverages state-of-the-art AI tools such as Groq and transformers (BART-large-CNN) to process large volumes of academic papers, generate summaries, and classify their relevance to a given legal research topic.
 
-Features
+Features:
 
 	•	Automated Research Collection: Fetches research papers from the arXiv API based on predefined queries.
 	•	Summarization with Transformers: Uses a GPU-accelerated summarizer (BART-large-CNN) to generate concise summaries of papers.
 	•	Relevance Classification with Groq: Automatically classifies papers as “Relevant” or “Not Relevant” to a provided legal research abstract.
 	•	Synthesis of Key Findings: Synthesizes relevant papers into a comprehensive, Wikipedia-style summary.
 
-Requirements
+Requirements:
 
-Before running this project, make sure you have the following dependencies installed:
+1. Before running this project, make sure you have the following dependencies installed:
+	
+		pip install groq transformers tqdm langchain aiohttp torch
+	
+2. Additionally, ensure you have access to:
+	
+		•	Groq API Key: Set your Groq API key as an environment variable or in Colab secrets.
+		•	GPU Access: Optional, but recommended for faster summarization performance using PyTorch.
 
-pip install groq transformers tqdm langchain aiohttp torch
+Setup:
 
-Additionally, ensure you have access to:
-
-	•	Groq API Key: Set your Groq API key as an environment variable or in Colab secrets.
-	•	GPU Access: Optional, but recommended for faster summarization performance using PyTorch.
-
-Setup
-
-	1.	Clone the repository:
-
-git clone https://github.com/apritch2019/Researcher_Synthesizer.git
-cd Researcher_Synthesizer
-
-
-	2.	Install dependencies:
-You can install all required dependencies using the requirements.txt file (if you have one) or via the command mentioned above.
-	3.	Configure environment variables:
-Store your Groq API key as an environment variable. For instance, in your terminal:
-
-export GROQ_API_KEY="your-api-key"
-
-Alternatively, if using Colab, save it under Colab secrets.
-
-	4.	Configure Queries and Dates:
-Modify the config dictionary in the code to set up your custom research queries and date ranges for paper collection:
-
-config = {
-    'groq_api_key': os.getenv('GROQ_API_KEY'),  # Ensure this is correctly set
-    'start_date': '2019-01-01',
-    'end_date': '2024-12-31',
-    'queries': [
-        'Natural language processing AND legal document review',
-        'legal text summarization',
-        # Add your queries here
-    ],
-    'paper_abstract': 'This paper surveys the most common use cases for NLP in legal document review...'  # Provide your abstract here
-}
+1.	Clone the repository:
+	
+			git clone https://github.com/apritch2019/Researcher_Synthesizer.git
+			cd Researcher_Synthesizer
+	
+2.	Install dependencies:
+		You can install all required dependencies using the requirements.txt file (if you have one) or via the command mentioned above.
+	
+3.	Configure environment variables:
+			Store your Groq API key as an environment variable. For instance, in your terminal: export GROQ_API_KEY="your-api-key"
+			Alternatively, if using Colab, save it under Colab secrets.
+	
+4.	Configure Queries and Dates:
+				Modify the config dictionary in the code to set up your custom research queries and date ranges for paper collection:
+				
+				config = {
+				    'groq_api_key': os.getenv('GROQ_API_KEY'),  # Ensure this is correctly set
+				    'start_date': '2019-01-01',
+				    'end_date': '2024-12-31',
+				    'queries': [
+				        'Natural language processing AND legal document review',
+				        'legal text summarization',
+				        # Add your queries here
+				    ],
+				    'paper_abstract': 'This paper surveys the most common use cases for NLP in legal document review...'  # Provide your abstract here
+				}
 
 
 
-Usage
+Usage:
 
-	1.	Run the Research Pipeline:
-After setting up the configuration, you can run the full pipeline using the following command:
+1. Run the Research Pipeline:
 
-await main()
+		After setting up the configuration, you can run the full pipeline using the following command: await main()
 
-This will:
-	•	Fetch research papers from arXiv based on your queries.
-	•	Summarize each paper using a GPU-accelerated transformer model.
-	•	Classify the relevance of each summary using Groq’s NLP capabilities.
-	•	Synthesize relevant papers into a comprehensive research overview.
+2. Customizing the Pipeline:
 
-	2.	Customizing the Pipeline:
 	•	Custom Queries: Modify the queries field in the config dictionary to search for specific topics in legal NLP.
 	•	Summarization: Adjust the summarization parameters (e.g., length, sampling) in the summarize_legal_document() function to fine-tune the output.
 	•	Classification: You can modify or expand the classification criteria in the classify_summary_groq() function for more granular results.
 
-Example Output
+Example Output:
 
-After running the pipeline, you will see a synthesized Wikipedia-style summary based on the selected research papers.
-
-Here’s a snippet of what the output might look like:
+After running the pipeline, you will see a synthesized Wikipedia-style summary based on the selected research papers. Here’s a snippet of what the output might look like:
 
     Title: Natural Language Processing in Legal Document Review: Recent Developments and Implications
     
@@ -133,7 +122,7 @@ Here’s a snippet of what the output might look like:
     
     [3] C. L. Lee, "The Future of Legal Document Review: An Interdisciplinary Perspective," International Journal of Law and Information Technology, vol. 28, no. 2, pp. 142-159, 2024.
 
-Roadmap
+Roadmap:
 
 	•	Add more queries for expanding the research scope.
 	•	Enhance the classification mechanism with more advanced relevance criteria.
