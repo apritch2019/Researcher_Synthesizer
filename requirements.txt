@@ -1,1 +1,7 @@
-
+groq
+transformers
+tqdm
+langchain
+aiohttp
+torch
+beautifulsoup4
