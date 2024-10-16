@@ -58,10 +58,10 @@ Usage:
 		After setting up the configuration, you can run the full pipeline using the following command: await main()
 
 2. Customizing the Pipeline:
-
-	•	Custom Queries: Modify the queries field in the config dictionary to search for specific topics in legal NLP.
-	•	Summarization: Adjust the summarization parameters (e.g., length, sampling) in the summarize_legal_document() function to fine-tune the output.
-	•	Classification: You can modify or expand the classification criteria in the classify_summary_groq() function for more granular results.
+	
+		•	Custom Queries: Modify the queries field in the config dictionary to search for specific topics in legal NLP.
+		•	Summarization: Adjust the summarization parameters (e.g., length, sampling) in the summarize_legal_document() function to fine-tune the output.
+		•	Classification: You can modify or expand the classification criteria in the classify_summary_groq() function for more granular results.
 
 Example Output:
 
